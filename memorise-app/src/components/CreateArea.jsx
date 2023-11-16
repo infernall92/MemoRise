@@ -1,6 +1,11 @@
 import React, { useState } from "react";
+import Fab from '@mui/material/Fab';
+import SdStorageIcon from '@mui/icons-material/SdStorage';
+import Zoom from '@mui/material/Zoom';
 
 function CreateArea(props) {
+
+    const [isExpanded, setExpanded] = useState(false)
 
     const [note, setNote] = useState({
         title: "",
@@ -25,11 +30,18 @@ function CreateArea(props) {
         })
         event.preventDefault();
     }
+
+    function expand() {
+        setExpanded(true);
+    }
+
     return (<div>
         <form className="create-note">
-            <input name="title" onChange={handleChange} value={note.title} placeholder="Memory title"></input>
-            <input name="content" onChange={handleChange} value={note.content} placeholder="Create a memory..."></input>
-            <button onClick={submitNote} type="submit">Add</button>
+            {isExpanded ? <input name="title" onChange={handleChange} value={note.title} placeholder="Memory title"></input> : null}
+            <textarea name="content" onClick={expand} onChange={handleChange} value={note.content} rows={isExpanded ? "3" : "1"} placeholder="Create a memory..."></textarea>
+            <Zoom in={isExpanded}>
+            <Fab onClick={submitNote} type="submit"><SdStorageIcon /></Fab>
+            </Zoom>
         </form>
     </div>)
 }

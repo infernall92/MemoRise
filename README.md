@@ -13,6 +13,8 @@ and then
 
 ```npm start```
 
+## More info
+
 ```--legacy-peer-deps``` flag is needed because React and React-dom versions are downgraded.
 That was required by Material UI elements, because they weren't compatible with the latest React version.
 

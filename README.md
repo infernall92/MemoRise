@@ -7,9 +7,7 @@ It's similar to Notes app on your phone.
 
 To view the app locally, clone the repository in your local environment and run the following commands in the terminal:
 
-```cd MemoRise```
-
-```cd memorise-app```
+```cd MemoRise/memorise-app```
 
 ```npm install --legacy-peer-deps```
 
